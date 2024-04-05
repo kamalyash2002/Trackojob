@@ -44,8 +44,26 @@ const handleAnalytics = async (req, res) => {
     return res.status(200).json({totalclicks: entry.visitHistory.length , analytics : entry.visitHistory});
 };
 
+const handleRedirect = async (req, res) => {
+    const shortId = req.params.shortId;
+    const entry = await URL.findOneAndUpdate(
+      {
+        shortId,
+      },
+      {
+        $push: {
+          visitHistory: {
+            timestamp: Date.now(),
+          },
+        },
+      }
+    );
+    res.redirect(entry.redirectUrl);
+  };
+
 module.exports = {
     handlerGenerateShortUrl,
     handleListUrl,
-    handleAnalytics
+    handleAnalytics,
+    handleRedirect
 }

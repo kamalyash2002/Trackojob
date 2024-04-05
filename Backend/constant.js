@@ -1,4 +1,3 @@
-
 const JobStatus = {
     WISHLIST: 'Wishlist',
     APPLIED: 'Applied',
@@ -21,4 +20,4 @@ const jobtype = {
     INTERN: 'Intern'
 };
 
-module.exports = { JobStatus };
+module.exports = { JobStatus , jobtype };

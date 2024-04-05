@@ -3,6 +3,17 @@ const {Job} = require('../models/job');
 
 const handleJobCreate = async (req, res) => {
     const { title , company , jobtype , location, salary, description , deadline , status} = req.body;
+    // checking if the job alreafy exists
+    const existingJob = await Job.findOne({
+        title,
+        company,
+        jobtype,
+        location,
+        salary
+    });
+    if(existingJob){
+        return res.status(400).json({message: "Job already exists"});
+    }
     const job = await Job.create({
         title ,
         company,
@@ -16,6 +27,14 @@ const handleJobCreate = async (req, res) => {
     });
     return res.json({job});
 }
+
+const handleListJobs = async (req, res) => {
+    const jobs = await Job.find({
+        createdBy: req.user._id
+    });
+    return res.json({jobs});
+}
+
 
 const handleJobUpdate = async (req, res) => {
     const { title , company , jobtype , location, salary, description , deadline , status} = req.body;
@@ -31,6 +50,7 @@ const handleJobUpdate = async (req, res) => {
         description,
         deadline,
         status,
+        updatedAt: Date.now(),
     },
     {
         new: true
@@ -38,7 +58,11 @@ const handleJobUpdate = async (req, res) => {
     return res.json({job});
 }
 
+
+
+
 module.exports = {
     handleJobCreate,
-    handleJobUpdate
+    handleJobUpdate,
+    handleListJobs,
 }

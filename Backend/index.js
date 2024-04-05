@@ -32,7 +32,7 @@ connect('mongodb://127.0.0.1:27017/job-tracker').then(() => {
 });
 
 //routes
-app.use('/url', checkForAuthentication, urlRoute);
+app.use('/', checkForAuthentication, urlRoute);
 app.use('/auth', authRoute);
 app.use('/job', checkForAuthentication,jobRoute);
 

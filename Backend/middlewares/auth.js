@@ -2,6 +2,9 @@ const { getUser } = require("../service/auth");
 
 async function checkForAuthentication(req, res, next) {
     // checking if the authorization header is present in the request
+    if(!req.headers?.['authorization']){
+        return res.status(401).json({message: "Unauthorized"});
+    }
     const authorizationHeaderValue = req.headers?.['authorization'].split('Bearer ')[1];
     req.user = null;
     // if the authorization header is not present, then return unauthorized
