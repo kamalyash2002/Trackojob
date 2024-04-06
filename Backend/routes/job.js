@@ -3,6 +3,7 @@ const router = express.Router();
 const {handleJobCreate} = require('../controllers/job');
 const {handleJobUpdate} = require('../controllers/job');
 const {handleListJobs} = require('../controllers/job');
+require("dotenv").config();
 
 
 router.post('/', handleJobCreate);

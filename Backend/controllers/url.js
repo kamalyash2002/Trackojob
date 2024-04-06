@@ -58,7 +58,7 @@ const handleRedirect = async (req, res) => {
         },
       }
     );
-    res.redirect(entry.redirectUrl);
+    res.redirect(entry?.redirectUrl);
   };
 
 module.exports = {

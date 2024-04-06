@@ -29,6 +29,7 @@ const handleJobCreate = async (req, res) => {
 }
 
 const handleListJobs = async (req, res) => {
+    console.log(req.user);
     const jobs = await Job.find({
         createdBy: req.user._id
     });
