@@ -24,7 +24,7 @@ const port = process.env.PORT || 8000;
 
 const MONGO_URI = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/job-tracker';
 
-connect(MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+connect(MONGO_URI).then(() => {
     console.log('Connected to MongoDB');
     
 }).catch((err) => {
