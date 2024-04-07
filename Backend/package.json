@@ -4,7 +4,8 @@
   "description": "This application is used the track the jobs application and also runs the community in which you can share jobs openings to other.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "fast" : "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yash Kamal Saxena",
