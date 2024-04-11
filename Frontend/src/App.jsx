@@ -1,5 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import Disclosure from  './components/Disclosure'
+import HeroSection from './components/HeroSection'
 import './index.css'
 
 function App() {
@@ -7,9 +9,9 @@ function App() {
   return (
     <>
       <Navbar/>
-      <h1 className='text-center bg-black'>
-        Welcome to the React App
-      </h1>
+      <HeroSection/>
+      <Disclosure/>
+     
     </>
   )
 }
