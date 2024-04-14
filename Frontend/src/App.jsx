@@ -1,17 +1,21 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import Disclosure from  './components/Disclosure'
-import HeroSection from './components/HeroSection'
+import Home from './page/Home'
+import Footer from './components/Footer'
 import './index.css'
+import Login from './page/Login'
+import {Route , Routes} from 'react-router-dom'
 
 function App() {
 
   return (
     <>
       <Navbar/>
-      <HeroSection/>
-      <Disclosure/>
-     
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/login" element={<Login/>}/>
+      </Routes>
+      <Footer/>
     </>
   )
 }
