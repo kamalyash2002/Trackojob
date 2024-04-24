@@ -13,7 +13,7 @@ if (window.location.hostname.includes("localhost")) {
 const api = axios.create({ baseURL: HOST_API });
 
 axios.defaults.timeout = 30000;
-const LOCAL_ENV_BASE_URL = `${HOST_API}/api`;
+const LOCAL_ENV_BASE_URL = `${HOST_API}`;
 
 export const getApiUrl = (endPointUri) => `${LOCAL_ENV_BASE_URL}${endPointUri}`;
 
@@ -23,11 +23,8 @@ api.interceptors.request.use((requestConfig) => {
     requestConfig.headers.Authorization = `Bearer ${token}`;
   }
   // in auth routes, we don't need to send the token
-  if (
-    requestConfig.url.includes('/auth/signin') ||
-    requestConfig.url.includes('/auth/signup') ||
-    requestConfig.url.includes('/auth/send-otp')
-  ) {
+  if (requestConfig.url.includes('/auth/signin') || requestConfig.url.includes('/auth/signup')) 
+  {
     delete requestConfig.headers.Authorization;
   }
   return requestConfig;

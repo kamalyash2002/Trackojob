@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const connect = require('./connect');
 const {checkForAuthentication} = require('./middlewares/auth');
 require("dotenv").config();
+const cors = require('cors');
 
 //routes
 const urlRoute = require('./routes/url');
@@ -17,6 +18,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(cors(
+    {
+        origin: '*',
+        credentials: true
+    }
+));
 
 
 //port

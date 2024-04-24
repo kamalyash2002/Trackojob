@@ -8,8 +8,8 @@ const getLocalStorageItem = (key) => {
 };
 
 export {
-  setSelectedBranchId,
-  getSelectedBranchId,
+  setLocalStorageItem,
+  getLocalStorageItem,
 };
 
 // functions for setting the things in the local storage

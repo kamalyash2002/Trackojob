@@ -1,6 +1,6 @@
 export const endpoints = {
     auth: {
-        login: '/auth/signin',
+        login: '/auth/login',
         register: '/auth/signup',
     },
     job:{
