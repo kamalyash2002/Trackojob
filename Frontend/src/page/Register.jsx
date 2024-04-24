@@ -13,10 +13,9 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      console.log("Password Matched");
-    } else {
-      console.log("Password not matched");
+    if( name === "" || email === "" || password === "" || confirmPassword === "" ){
+      toast.error("All fields are required");
+      return;
     }
     const response = await makePostRequest(endpoints.auth.register, {
       name,
