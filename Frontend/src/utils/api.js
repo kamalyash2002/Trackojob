@@ -18,12 +18,13 @@ const LOCAL_ENV_BASE_URL = `${HOST_API}`;
 export const getApiUrl = (endPointUri) => `${LOCAL_ENV_BASE_URL}${endPointUri}`;
 
 api.interceptors.request.use((requestConfig) => {
-  const token = window.localStorage.getItem('accessToken');
+  const token = window.localStorage.getItem('token').slice(1, -1);
+ 
   if (token) {
     requestConfig.headers.Authorization = `Bearer ${token}`;
   }
   // in auth routes, we don't need to send the token
-  if (requestConfig.url.includes('/auth/signin') || requestConfig.url.includes('/auth/signup')) 
+  if (requestConfig.url.includes('/Login') || requestConfig.url.includes('/register')) 
   {
     delete requestConfig.headers.Authorization;
   }
@@ -35,11 +36,12 @@ api.interceptors.response.use(
   (error) => {
     // Check for unauthorized responses (401 and 403)
     if (
-      error.response &&
-      [401].includes(error.response.status) &&
-      !error.config.url.includes('/auth')
+     error.response &&
+      [401].includes(error.response.status) && 
+      !error.config.url.includes('/Login')
     ) {
-      window.location.replace('/auth');
+      console.log('error', error);
+      window.location.replace('/Login');
       return Promise.reject(error);
     }
     // For other errors, reject the promise with the error object

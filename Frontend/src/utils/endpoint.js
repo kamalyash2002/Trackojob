@@ -4,10 +4,10 @@ export const endpoints = {
         register: '/auth/signup',
     },
     job:{
-        create: '/job/create',
-        get: '/job/get',
-        update: '/job/update',
-        delete: '/job/delete',
+        create: '/job',
+        get: '/job',
+        update: '/job',
+        delete: '/job',
     }
 };
 
