@@ -13,6 +13,9 @@ async function checkForAuthentication(req, res, next) {
     }
     const user = getUser(authorizationHeaderValue);
     // apending the user object to the request object
+    if(!user){
+        return res.status(401).json({message: "Unauthorized"});
+    }
     req.user = user;
     return next();
 }

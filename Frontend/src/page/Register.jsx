@@ -23,7 +23,6 @@ function Register() {
       password,
     });
     toast.success(response.message);
-    console.log(response);
   };
 
   return (
