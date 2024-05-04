@@ -18,13 +18,15 @@ const LOCAL_ENV_BASE_URL = `${HOST_API}`;
 export const getApiUrl = (endPointUri) => `${LOCAL_ENV_BASE_URL}${endPointUri}`;
 
 api.interceptors.request.use((requestConfig) => {
-  const token = window.localStorage.getItem('token').slice(1, -1);
+  console.log('requestConfig', requestConfig);
+  
+  const token = window.localStorage.getItem('token');
  
   if (token) {
-    requestConfig.headers.Authorization = `Bearer ${token}`;
+    requestConfig.headers.Authorization = `Bearer ${token.slice(1, -1)}`;
   }
   // in auth routes, we don't need to send the token
-  if (requestConfig.url.includes('/Login') || requestConfig.url.includes('/register')) 
+  if (requestConfig.url.includes('/login') || requestConfig.url.includes('/register')|| requestConfig.url.includes('/features')|| requestConfig.url.includes('/reset-password'))
   {
     delete requestConfig.headers.Authorization;
   }
