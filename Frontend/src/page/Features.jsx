@@ -4,23 +4,6 @@ import shortlink from '../assets/shortlink2.jpg'
 import linkedin from '../assets/linkedin.jpg'
 
 function Features() {
-    const features = [
-        {
-            title: "We're not reinventing the wheel",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.",
-            image: "https://source.unsplash.com/640x480/?1"
-        },
-        {
-            title: "We're not reinventing the wheel",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.",
-            image: "https://source.unsplash.com/640x480/?2"
-        },
-        {
-            title: "We're not reinventing the wheel",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.",
-            image: "https://source.unsplash.com/640x480/?3"
-        }
-    ]
   return (
     <div className="flex min-h-screen items-center justify-center p-10 bg-white">
   <div className="container grid max-w-screen-xl gap-8 lg:grid-cols-2 lg:grid-rows-2">

@@ -6,8 +6,8 @@ export const endpoints = {
     job:{
         create: '/job',
         get: '/job',
-        update: '/job',
-        delete: '/job',
+        update :(id) => `/job/${id}`,
+        delete :(id) => `/job/${id}`,
     }
 };
 

@@ -59,6 +59,13 @@ const handleJobUpdate = async (req, res) => {
     return res.json({job});
 }
 
+const handleDeleteJob = async(req,res)=>{
+    const job = await Job.findOneAndDelete({
+        _id:req.params.id
+    });
+    return res.json({job});
+}
+
 
 
 
@@ -66,4 +73,5 @@ module.exports = {
     handleJobCreate,
     handleJobUpdate,
     handleListJobs,
+    handleDeleteJob
 }
