@@ -8,10 +8,11 @@ export const endpoints = {
         get: '/job',
         update :(id) => `/job/${id}`,
         delete :(id) => `/job/${id}`,
+        metrics :'/job/metrics',
     }
 };
 
 
 
-// here we can define the base url for the api
+// this files contains all the api endpoints used in the application
   

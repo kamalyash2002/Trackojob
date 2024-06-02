@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { makeGetRequest } from "../utils/axiosClient";
 import { endpoints } from "../utils/endpoint";
 import JobTable from "../components/job/JobTable";
+import Metrics from "../components/job/Metrics";
 
 
 function Job() {
+  console.log("This is Job Page");
   const [jobs, setJobs] = useState([]);
+  
   
 
   const handleGetJob = async () => {
@@ -17,8 +20,7 @@ function Job() {
       return [];
     }
   };
-
-  
+ 
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -27,12 +29,11 @@ function Job() {
     };
     fetchJobs();
   }, []);
-  // update the jobs when the jobs state changes
-  useEffect(() => {
-  }, [jobs]);
+  
 
   return (
     <>
+      <Metrics jobs = {jobs} />
       < JobTable jobs={jobs} setJobs ={setJobs}  />
     </>
   );

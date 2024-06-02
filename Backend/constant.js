@@ -7,7 +7,6 @@ const JobStatus = {
     OFFER_EXTENDED: 'Offer Extended',
     OFFER_ACCEPTED: 'Offer Accepted',
     OFFER_DECLINED: 'Offer Declined',
-    ONBOARDING: 'Onboarding',
     HIRED: 'Hired',
     REJECTED: 'Rejected'
 };

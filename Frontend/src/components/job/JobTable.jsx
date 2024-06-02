@@ -5,7 +5,9 @@ import ConfirmDelete from "./ConfirmDelete";
 import Button from "../button/Button";
 import CreateJob from "./CreateJob";
 
+
 function JobTable({ jobs, setJobs }) {
+  console.log("This is Job Table Page");
   // Selected job
   const [selectedJob, setSelectedJob] = useState(null);
   const [createVisible, setCreateVisible] = useState(false);
@@ -81,7 +83,7 @@ function JobTable({ jobs, setJobs }) {
         />
       )}
       <div className="overflow-x-auto">
-        <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center font-sans overflow-hidden">
+        <div className="min-w-screen py-6 bg-gray-100 flex items-center justify-center font-sans overflow-hidden">
           <div className="w-full lg:w-5/6">
           <Button
             handleClick={ handleCreateClick }

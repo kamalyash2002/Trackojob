@@ -18,7 +18,6 @@ const LOCAL_ENV_BASE_URL = `${HOST_API}`;
 export const getApiUrl = (endPointUri) => `${LOCAL_ENV_BASE_URL}${endPointUri}`;
 
 api.interceptors.request.use((requestConfig) => {
-  console.log('requestConfig', requestConfig);
   
   const token = window.localStorage.getItem('token');
  
